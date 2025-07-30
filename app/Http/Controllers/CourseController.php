@@ -11,7 +11,6 @@ class CourseController extends Controller
 {
     public function store(Request $request)
     {
-        // Base Laravel validation
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -24,7 +23,6 @@ class CourseController extends Controller
             'modules.*.contents.*.details' => 'nullable',
         ]);
 
-        // Extra check: if type = image, a file is required
         foreach ($request->modules as $mIndex => $module) {
             foreach ($module['contents'] ?? [] as $cIndex => $content) {
                 if ($content['type'] === 'image' && !isset($content['details'])) {
@@ -35,7 +33,6 @@ class CourseController extends Controller
             }
         }
 
-        // Save course data (if valid)
         DB::transaction(function () use ($request) {
             $course = Course::create([
                 'title' => $request->title,

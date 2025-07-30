@@ -1,61 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Course Creation Web App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based project that allows users to create courses with unlimited modules and unlimited content items (text, image, video, link).
 
-## About Laravel
+This project demonstrates full-stack development using:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Frontend**: HTML, CSS, JavaScript, jQuery
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Backend**: Laravel (PHP)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Database**: MySQL
 
-## Learning Laravel
+## Features 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+✅ Course Creation – Add a course with title, description, and category.  
+✅ Unlimited Modules – Each course can have as many modules as needed.  
+✅ Unlimited Content Per Module – Add text, images, videos, or links.  
+✅ Dynamic Form – Add/remove modules & contents dynamically using jQuery.  
+✅ File Uploads – Upload images for content (stored in storage/app/public/uploads/images).  
+✅ Frontend Validation – Instant feedback for required fields (red borders & inline error messages).  
+✅ Backend Validation – Ensures data integrity, preventing invalid entries.  
+✅ AJAX Form Submission – No page reload; smooth UX.  
+✅ Error & Success Handling – Inline messages for user clarity.  
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Validation 
+**🔹 Frontend Validation**  
+✔ Course Title required  
+✔ At least one Module required  
+✔ Each Module Title required  
+✔ Each Content Title required  
+✔ If type = Image → File must be uploaded  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**➡ Invalid fields are highlighted in red & errors are shown inline.**  
 
-## Laravel Sponsors
+**🔹 Backend Validation**  
+✔ Laravel validates all requests again to prevent bypass.  
+✔ Ensures type = image must include a file.  
+✔ Prevents invalid/malicious data from being saved.  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Tech Stack
 
-### Premium Partners
+**Laravel 11 (Backend & API)**  
+**Blade (View templating)**  
+**jQuery (Dynamic UI)**  
+**Bootstrap (optional) for styling (or custom CSS)**  
+**MySQL for database**  
+**AJAX for seamless communication between frontend & backend**  
+## Project Structure
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+CourseCreationPage/  
+├── app/  
+│   ├── Http/Controllers/CourseController.php  
+│   ├── Models/Course.php  
+│   ├── Models/Module.php  
+│   ├── Models/Content.php  
+├── database/migrations/  
+│   ├── create_courses_table.php  
+│   ├── create_modules_table.php  
+│   ├── create_contents_table.php  
+├── public/  
+│   ├── css/style.css  
+│   ├── js/main.js  
+│   ├── storage -> storage/app/public (symlink)  
+├── resources/views/courses/create.blade.php  
+├── routes/web.php  
+└── README.md  
 
-## Contributing
+## Setup Instructions
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+git clone https://github.com/your-username/CourseCreationPage.git  
+cd CourseCreationPage  
 
-## Code of Conduct
+## Install Dependencies  
+composer install  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Install Dependencies  
+**Copy .env.example to .env**  
+**php artisan key:generate**  
+**php artisan migrate**  
+**php artisan storage:link**  
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Run the Project  
+**php artisan serve**  

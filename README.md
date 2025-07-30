@@ -67,7 +67,7 @@ CourseCreationPage/
 
 ## Setup Instructions
 
-git clone https://github.com/your-username/CourseCreationPage.git  
+git clone https://github.com/hasanuzzamanpriyam/course-creation-web-page  
 cd CourseCreationPage  
 
 ## Install Dependencies  
